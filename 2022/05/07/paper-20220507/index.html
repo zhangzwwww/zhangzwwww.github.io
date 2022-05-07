@@ -1,10 +1,234 @@
-{% extends "_layout.swig" %}
-{% import '_macro/post.swig' as post_template %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
 
-{% block title %} {{ page.title }} - {{ config.title }} {% endblock %}
 
-{% block content %}
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="description" content="论文阅读：文档级别文本简化，数据集，标准以及baseline"/>
+
+
+
+
+  <meta name="keywords" content="Paper Reading," />
+
+
+
+
+
+  <link rel="alternate" href="/default" title="zhzw" >
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1" />
+
+
+
+<link rel="canonical" href="http://example.com/2022/05/07/paper-20220507/"/>
+
+
+<meta name="description" content="Document-Level Text Simplification: Dataset, Criteria and Baseline概要文本简化工作能够帮助一些不了解该语言或者对于该文本领域不是太了解的读者阅读文本。但是当前的工作都是针对语句(sentence)级别的简化，本文提出的任务是对整个文档进行简化。 问题定义给定一个复杂的文章C，其中包含n个句子S1,S2,S3,…,Sn。文档级别的简化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读：文档级别文本简化，数据集，标准以及baseline">
+<meta property="og:url" content="http://example.com/2022/05/07/paper-20220507/index.html">
+<meta property="og:site_name" content="zhzw">
+<meta property="og:description" content="Document-Level Text Simplification: Dataset, Criteria and Baseline概要文本简化工作能够帮助一些不了解该语言或者对于该文本领域不是太了解的读者阅读文本。但是当前的工作都是针对语句(sentence)级别的简化，本文提出的任务是对整个文档进行简化。 问题定义给定一个复杂的文章C，其中包含n个句子S1,S2,S3,…,Sn。文档级别的简化">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/D-SARI.png">
+<meta property="og:image" content="http://example.com/fkeep.png">
+<meta property="og:image" content="http://example.com/fadd.png">
+<meta property="og:image" content="http://example.com/fdel.png">
+<meta property="article:published_time" content="2022-05-07T14:13:35.000Z">
+<meta property="article:modified_time" content="2022-05-07T14:39:16.490Z">
+<meta property="article:author" content="ZHAOWEI ZHANG">
+<meta property="article:tag" content="Paper Reading">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/D-SARI.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+  
+
+
+
+    <title> 论文阅读：文档级别文本简化，数据集，标准以及baseline - zhzw </title>
+  <meta name="generator" content="Hexo 6.1.0"></head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">zhzw</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="/archives">
+                            
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        
+  </nav>
+</div>
+
+      </header>
+      <div id="content">
+        
     <div id="primary">
-        {{ post_template.render(page) }}
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          论文阅读：文档级别文本简化，数据集，标准以及baseline
+        
+      </h1>
+
+      <time class="post-time">
+          May 07 2022
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h1 id="Document-Level-Text-Simplification-Dataset-Criteria-and-Baseline"><a href="#Document-Level-Text-Simplification-Dataset-Criteria-and-Baseline" class="headerlink" title="Document-Level Text Simplification: Dataset, Criteria and Baseline"></a><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2110.05071.pdf">Document-Level Text Simplification: Dataset, Criteria and Baseline</a></h1><h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p>文本简化工作能够帮助一些不了解该语言或者对于该文本领域不是太了解的读者阅读文本。但是当前的工作都是针对语句(sentence)级别的简化，本文提出的任务是对整个文档进行简化。</p>
+<h2 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h2><p>给定一个复杂的文章C，其中包含n个句子S1,S2,S3,…,Sn。文档级别的简化方案将C简化为一个更加简单的文章F，由m个句子组成，其中m不一定要和n一致。F要保留C中的主要内容但是表述的更加直接，让用户更加容易的去阅读。</p>
+<p>语句级别的删减方法主要包含：语句关联（sentence joining），语句分割（sentence splitting），语句删减（sentence deletion），语句重排序（sentence reording），语句增加（sentence addition）以及对应解析（anaphora resolution, 代词之类的解析）。</p>
+<h2 id="数据集构建"><a href="#数据集构建" class="headerlink" title="数据集构建"></a>数据集构建</h2><p>作者基于 Wikipedia 以及 Simple English Wikipedia 构建数据集。通过将wiki以及simplewiki进行对应，因为可能没法对所有的内容一一对应，仅仅采用文章的摘要（标题后面一段）。之后删除大于1,000个单词的文章。最后有143,546个文章对。</p>
+<h2 id="评估标准"><a href="#评估标准" class="headerlink" title="评估标准"></a>评估标准</h2><p>作者提出一个新的评估标准来评价文档级别的文本简化好坏D-SARI，和SARI一样保留了添加，保留以及删除的分数。</p>
+<p><img src="/D-SARI.png" alt="D-SARI"></p>
+<p>I,O,R分别代表在输入文档，输出文档以及参考文档中的字数。Os以及Rs代表输出文档以及参考文档的句子数量。</p>
+<p>其他参数参考论文中的计算方法如下：</p>
+<p><img src="/fkeep.png" alt="fkeep"></p>
+<p><img src="/fadd.png" alt="fadd"></p>
+<p><img src="/fdel.png" alt="fdel"></p>
+<h2 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h2><p>用Transformer，BERT以及BART作为Baseline进行实验。</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+		
+		<div class="post-tags">
+		  
+			<a href="/tags/Paper-Reading/">Paper Reading</a>
+		  
+		</div>
+		
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2022/05/07/paper-20220506/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">论文阅读：Bridging Pre-trained Models and Downstream Tasks for Source Code Understanding</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2022/05/07/paper-cubert/">
+        <span class="next-text nav-default">论文阅读：CuBERT</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
     </div>
-{% endblock %}
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2014 -
+    
+    2022
+    <span class="footer-author">ZHAOWEI ZHANG.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> and <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/frostfan/hexo-theme-polarbear">Polar Bear</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+  </body>
+</html>
