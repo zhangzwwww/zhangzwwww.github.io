@@ -47,7 +47,7 @@
 <meta property="og:image" content="http://example.com/fadd.png">
 <meta property="og:image" content="http://example.com/fdel.png">
 <meta property="article:published_time" content="2022-05-07T14:13:35.000Z">
-<meta property="article:modified_time" content="2022-05-07T14:39:16.490Z">
+<meta property="article:modified_time" content="2022-05-07T15:27:40.702Z">
 <meta property="article:author" content="ZHAOWEI ZHANG">
 <meta property="article:tag" content="Paper Reading">
 <meta name="twitter:card" content="summary">
@@ -140,12 +140,12 @@
 <p>语句级别的删减方法主要包含：语句关联（sentence joining），语句分割（sentence splitting），语句删减（sentence deletion），语句重排序（sentence reording），语句增加（sentence addition）以及对应解析（anaphora resolution, 代词之类的解析）。</p>
 <h2 id="数据集构建"><a href="#数据集构建" class="headerlink" title="数据集构建"></a>数据集构建</h2><p>作者基于 Wikipedia 以及 Simple English Wikipedia 构建数据集。通过将wiki以及simplewiki进行对应，因为可能没法对所有的内容一一对应，仅仅采用文章的摘要（标题后面一段）。之后删除大于1,000个单词的文章。最后有143,546个文章对。</p>
 <h2 id="评估标准"><a href="#评估标准" class="headerlink" title="评估标准"></a>评估标准</h2><p>作者提出一个新的评估标准来评价文档级别的文本简化好坏D-SARI，和SARI一样保留了添加，保留以及删除的分数。</p>
-<p><img src="/D-SARI.png" alt="D-SARI"></p>
+<p><img src="/./D-SARI.png" alt="D-SARI"></p>
 <p>I,O,R分别代表在输入文档，输出文档以及参考文档中的字数。Os以及Rs代表输出文档以及参考文档的句子数量。</p>
 <p>其他参数参考论文中的计算方法如下：</p>
-<p><img src="/fkeep.png" alt="fkeep"></p>
-<p><img src="/fadd.png" alt="fadd"></p>
-<p><img src="/fdel.png" alt="fdel"></p>
+<p><img src="/./fkeep.png" alt="fkeep"></p>
+<p><img src="/./fadd.png" alt="fadd"></p>
+<p><img src="/./fdel.png" alt="fdel"></p>
 <h2 id="Baseline"><a href="#Baseline" class="headerlink" title="Baseline"></a>Baseline</h2><p>用Transformer，BERT以及BART作为Baseline进行实验。</p>
 
             </div>
